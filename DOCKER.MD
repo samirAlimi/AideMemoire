@@ -9,14 +9,14 @@ Commande | Description
 ------------ | -------------
 docker ps -a | Afficher tous les conteneurs
 docker ps | Afficher tous les conteneurs en cours d'exécution
-docker rmi <IMAGE> | Supprimer un conteneur
-docker run <IMAGE> | Pour lancer un conteneur
-docker run -ti <IMAGE> | les drapeaux -ti permettent de modifier le conteneur
+docker rmi <NOM IMAGE> | Supprimer un conteneur
+docker run <NOM IMAGE> | Pour lancer un conteneur
+docker run -ti <NOM IMAGE> | les drapeaux -ti permettent de modifier le conteneur
 docker diff <N° IMAGE> | 1. on récupère l'id du conteneur que l'on a modifié avec **docker ps -a**<br>2. Permet d'obtenir une liste des différentes modifications effectuées
-docker commit <N° IMAGE> <IMAGE> | Valider les modifications effectuées
-docker save <IMAGE> **>** <CHEMIN_DESTINATION/IMAGE.tar> | Sauvegarder l'image dans la destination
-docker tag <IMAGE **OR** ID> <HOSTNAME **OR** IP **:** PORT **/** CHEMIN_DESTINATION> **:** <FLAG> | Mettre un tag sur l'adresse de destination faisant référence à l'image locale
-docker push <HOSTNAME **OR** IP **:** PORT **/** CHEMIN_DESTINATION> **:** <FLAG> | Publier l'image sur l'adresse de destination
+docker commit <N° IMAGE> <NOM IMAGE> | Valider les modifications effectuées
+docker save <NOM IMAGE> **>** <CHEMIN_DESTINATION/IMAGE.tar> | Sauvegarder l'image dans la destination
+docker tag <IMAGE **OR** ID> <HOSTNAME **OR** IP **:** PORT **/** CHEMIN_DESTINATION> **:** <NOM FLAG> | Mettre un tag sur l'adresse de destination faisant référence à l'image locale
+docker push <HOSTNAME **OR** IP **:** PORT **/** CHEMIN_DESTINATION> **:** <NOM FLAG> | Publier l'image sur l'adresse de destination
 
 ## Exemples
 
