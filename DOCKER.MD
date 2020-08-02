@@ -39,15 +39,15 @@ De cette manière les données seront stockées sur la machine qui fait fonction
 
 ### Faire un push sur un serveur
 
-  1. Récuperer l'ID du conteneur :
+  * Récuperer l'ID du conteneur :
     * **docker ps -a**
-  2. Valider toutes les modifications effectuées sur le conteneur dans une nouvelle image :
+  * Valider toutes les modifications effectuées sur le conteneur dans une nouvelle image :
     * **docker commit c16378f943fe app-blog**
-  3. Mettre le tag (version) sur le conteneur pour qu'il pointe sur le serveur distant :
+  * Mettre le tag (version) sur le conteneur pour qu'il pointe sur le serveur distant :
     * **docker tag app-blog local.dev:8286/app-blog:v1**
     * *A noter que le nom de l'image et le tag sont en minuscules*
-  4. Publier le container :
-  * **docker push local.dev:8286/app-blog:v1**
+  * Publier le container :
+    * **docker push local.dev:8286/app-blog:v1**
 
 ### Faire un push ou un pull sur Docker Hub
 
@@ -55,32 +55,32 @@ Docker Hub est l'endroit où sont stockées les versions libres des images Docke
 
 #### Importer (pull) une image de Docker Hub
 
-  1. Vérifier si l'image existe et le supprimer, le cas échéant :
+  * Vérifier si l'image existe et le supprimer, le cas échéant :
     * **docker run --rm -p 8080:2368 --name app-blog ghost**
-  2. Importer l'image :
+  * Importer l'image :
     * **docker pull ghost**
 
 #### Exporter (push) une image sur Docker Hub
 
-  1. Se connecter sur [Docker Hub](https://hub.docker.com/) :
+  * Se connecter sur [Docker Hub](https://hub.docker.com/) :
     * **docker login --username=yourhubusername --email=votre_email@company.com**
     * **Saisir votre mot de passe**
-  2. Trouver l'ID ou le nom du conteneur :
+  * Trouver l'ID ou le nom du conteneur :
     * **docker ps -a**
-  3. Valider toutes les modifications effectuées sur le conteneur dans une nouvelle image :
+  * Valider toutes les modifications effectuées sur le conteneur dans une nouvelle image :
     * **docker commit c16378f943fe app-blog**
-  4. Mettre un tag sur votre conteneur :
+  * Mettre un tag sur votre conteneur :
     * **docker tag app-blog votrehubusername/app-blog:firsttry**
-  5. Publier le container sur docker hub :
+  * Publier le container sur docker hub :
     * **docker push votrehubusername/app-blog**
 
 #### Faire une sauvegarde en local du conteneur
 
-  1. Trouver l'ID ou le nom du conteneur :
+  * Trouver l'ID ou le nom du conteneur :
     * **docker ps -a**
-  2. Valider toutes les modifications effectuées sur le conteneur dans une nouvelle image :
+  * Valider toutes les modifications effectuées sur le conteneur dans une nouvelle image :
     * **docker commit c16378f943fe app-blog**
-  3. Enregistrer en local :
+  * Enregistrer en local :
     * **docker save app-blog > app-blog.tar**
-  4. Charger un conteneur local :
+  * Charger un conteneur local :
     * **docker load --input app-blog.tar**
