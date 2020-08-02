@@ -1,5 +1,6 @@
 # DOCKER - AIDE MEMOIRE
 
+Ceci est un aide mémoire sur l'utilisation de DOCKER
 
 ## Les commandes basiques
 
