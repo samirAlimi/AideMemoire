@@ -9,13 +9,13 @@ Commande | Description
 ------------ | -------------
 docker ps -a | Afficher tous les conteneurs
 docker ps | Afficher tous les conteneurs en cours d'exécution
-docker rmi <NOM IMAGE> | Supprimer un conteneur
-docker run <NOM IMAGE> | Pour lancer un conteneur
-docker run -ti <NOM IMAGE> | les drapeaux -ti permettent de modifier le conteneur
-docker diff <N° IMAGE> | 1. on récupère l'id du conteneur que l'on a modifié avec **docker ps -a**<br>2. Permet d'obtenir une liste des différentes modifications effectuées
-docker commit <N° IMAGE> <NOM IMAGE> | Valider les modifications effectuées
-docker save <NOM IMAGE> **>** <CHEMIN_DESTINATION/IMAGE.tar> | Sauvegarder l'image dans la destination
-docker tag <IMAGE **OR** ID> <HOSTNAME **OR** IP **:** PORT **/** CHEMIN_DESTINATION> **:** <NOM FLAG> | Mettre un tag sur l'adresse de destination faisant référence à l'image locale
+docker rmi <CONTAINER> | Supprimer un conteneur
+docker run <CONTAINER> | Pour lancer un conteneur
+docker run -ti <CONTAINER> | les drapeaux -ti permettent de modifier le conteneur
+docker diff <N° CONTAINER> | 1. on récupère l'id du conteneur que l'on a modifié avec **docker ps -a**<br>2. Permet d'obtenir une liste des différentes modifications effectuées
+docker commit <N° CONTAINER> <CONTAINER> | Valider les modifications effectuées
+docker save <CONTAINER> **>** <CHEMIN_DESTINATION/CONTAINER.tar> | Sauvegarder l'image dans la destination
+docker tag <CONTAINER **OR** ID> <HOSTNAME **OR** IP **:** PORT **/** CHEMIN_DESTINATION> **:** <NOM FLAG> | Mettre un tag sur l'adresse de destination faisant référence à l'image locale
 docker push <HOSTNAME **OR** IP **:** PORT **/** CHEMIN_DESTINATION> **:** <NOM FLAG> | Publier l'image sur l'adresse de destination
 
 ## Exemples
@@ -40,14 +40,14 @@ De cette manière les données seront stockées sur la machine qui fait fonction
 ### Faire un push sur un serveur
 
 Récuperer l'ID du conteneur :
-  **docker ps -a**<br>
+  * **docker ps -a**
 Valider toutes les modifications effectuées sur le conteneur dans une nouvelle image :
-  **docker commit c16378f943fe app-blog**<br>
+  * **docker commit c16378f943fe app-blog**
 Mettre le tag (version) sur le conteneur pour qu'il pointe sur le serveur distant :
-  **docker tag app-blog local.dev:8286/app-blog:v1**<br>
-  *A noter que le nom de l'image et le tag sont en minuscules*<br>
+  * **docker tag app-blog local.dev:8286/app-blog:v1**
+  * *A noter que le nom de l'image et le tag sont en minuscules*
 Publier le container :
-  **docker push local.dev:8286/app-blog:v1**
+  * **docker push local.dev:8286/app-blog:v1**
 
 ### Faire un push ou un pull sur Docker Hub
 
@@ -56,31 +56,31 @@ Docker Hub est l'endroit où sont stockées les versions libres des images Docke
 #### Importer (pull) une image de Docker Hub
 
 Vérifier si l'image existe et le supprimer, le cas échéant :
-  **docker run --rm -p 8080:2368 --name app-blog ghost**<br>
+  * **docker run --rm -p 8080:2368 --name app-blog ghost**
 Importer l'image :
-  **docker pull ghost**
+  * **docker pull ghost**
 
 #### Exporter (push) une image sur Docker Hub
 
 Se connecter sur [Docker Hub](https://hub.docker.com/) :
-  **docker login --username=yourhubusername --email=votre_email@company.com**<br>
-  **Saisir votre mot de passe**<br>
+  * **docker login --username=yourhubusername --email=votre_email@company.com**
+  * **Saisir votre mot de passe**
 Trouver l'ID ou le nom du conteneur :
-  **docker ps -a**<br>
+  * **docker ps -a**
 Valider toutes les modifications effectuées sur le conteneur dans une nouvelle image :
-  **docker commit c16378f943fe app-blog**<br>
+  * **docker commit c16378f943fe app-blog**
 Mettre un tag sur votre conteneur :
-  **docker tag app-blog votrehubusername/app-blog:firsttry**<br>
+  * **docker tag app-blog votrehubusername/app-blog:firsttry**
 Publier le container sur docker hub :
-  **docker push votrehubusername/app-blog**
+  * **docker push votrehubusername/app-blog**
 
 #### Faire une sauvegarde en local du conteneur
 
 Trouver l'ID ou le nom du conteneur :
-  **docker ps -a**<br>
+  * **docker ps -a**
 Valider toutes les modifications effectuées sur le conteneur dans une nouvelle image :
-  **docker commit c16378f943fe app-blog**<br>
+  * **docker commit c16378f943fe app-blog**
 Enregistrer en local :
-  **docker save app-blog > app-blog.tar**<br>
+  * **docker save app-blog > app-blog.tar**
 Charger un conteneur local :
-  **docker load --input app-blog.tar**
+  * **docker load --input app-blog.tar**
